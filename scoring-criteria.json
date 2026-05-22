@@ -1,0 +1,481 @@
+{
+  "competencies": [
+    {
+      "id": "M.01",
+      "name": "Integritas",
+      "definition": "Konsisten berperilaku selaras dengan nilai, norma dan/atau etika organisasi, dan jujur dalam hubungan dengan manajemen, rekan kerja, bawahan langsung, dan pemangku kepentingan.",
+      "weight": 1,
+      "levels": [
+        {
+          "level": 1,
+          "description": "Mampu bertindak sesuai nilai, norma, etika organisasi dalam kapasitas pribadi",
+          "indicators": [
+            "Bertingkah laku sesuai dengan perkataan; berkata sesuai dengan fakta",
+            "Melaksanakan peraturan, kode etik organisasi dalam lingkungan kerja sehari-hari",
+            "Tidak menjanjikan/memberikan sesuatu yang bertentangan dengan aturan organisasi"
+          ]
+        },
+        {
+          "level": 2,
+          "description": "Mampu mengingatkan, mengajak rekan kerja untuk bertindak sesuai nilai, norma, dan etika organisasi",
+          "indicators": [
+            "Mengingatkan rekan kerja untuk bertindak sesuai dengan nilai, norma, dan etika organisasi dalam segala situasi",
+            "Menerapkan norma-norma secara konsisten dalam setiap situasi pada unit kerja",
+            "Memberikan informasi yang dapat dipercaya sesuai dengan etika organisasi"
+          ]
+        },
+        {
+          "level": 3,
+          "description": "Mampu memastikan, menanamkan keyakinan bersama agar anggota yang dipimpin bertindak sesuai nilai, norma, dan etika organisasi",
+          "indicators": [
+            "Memastikan anggota yang dipimpin bertindak sesuai dengan nilai, norma, dan etika organisasi dalam segala situasi",
+            "Memberikan apresiasi dan teguran bagi anggota yang dipimpin agar bertindak selaras dengan nilai, norma, dan etika",
+            "Melakukan monitoring dan evaluasi terhadap penerapan sikap integritas di dalam unit kerja yang dipimpin"
+          ]
+        },
+        {
+          "level": 4,
+          "description": "Mampu menciptakan situasi kerja yang mendorong kepatuhan pada nilai, norma, dan etika organisasi",
+          "indicators": [
+            "Menciptakan situasi kerja yang mendorong seluruh pemangku kepentingan mematuhi nilai, norma, dan etika organisasi",
+            "Mendukung dan menerapkan prinsip moral dan standar etika yang tinggi, serta berani menanggung konsekuensinya",
+            "Berani melakukan koreksi atau mengambil tindakan atas penyimpangan kode etik yang dilakukan oleh orang lain"
+          ]
+        },
+        {
+          "level": 5,
+          "description": "Mampu menjadi role model dalam penerapan standar keadilan dan etika di tingkat nasional",
+          "indicators": [
+            "Mempertahankan tingkat standar keadilan dan etika yang tinggi dalam perkataan dan tindakan sehari-hari",
+            "Menjadi 'role model' /keteladanan dalam penerapan standar keadilan dan etika organisasi",
+            "Membuat konsep kebijakan dan strategi penerapan sikap integritas dalam pelaksanaan tugas"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "M.02",
+      "name": "Kerjasama",
+      "definition": "Kemampuan menjalin, membina, mempertahankan hubungan kerja yang efektif, memiliki komitmen saling membantu dalam penyelesaian tugas, dan mengoptimalkan segala sumberdaya untuk mencapai tujuan strategis organisasi.",
+      "weight": 1,
+      "levels": [
+        {
+          "level": 1,
+          "description": "Berpartisipasi dalam kelompok kerja",
+          "indicators": [
+            "Berpartisipasi sebagai anggota tim yang baik, melakukan tugas/bagiannya, dan mendukung keputusan tim",
+            "Mendengarkan dan menghargai masukan dari orang lain dan memberikan usulan bagi kepentingan tim",
+            "Mampu menjalin interaksi sosial untuk penyelesaian tugas"
+          ]
+        },
+        {
+          "level": 2,
+          "description": "Menumbuhkan tim kerja yang partisipatif dan efektif",
+          "indicators": [
+            "Membantu orang lain dalam menyelesaikan tugas-tugas mereka untuk mendukung sasaran tim",
+            "Berbagi informasi yang relevan atau bermanfaat pada anggota tim; mempertimbangkan masukan dan keahlian anggota dalam tim",
+            "Membangun komitmen yang tinggi untuk menyelesaikan tugas tim"
+          ]
+        },
+        {
+          "level": 3,
+          "description": "Efektif membangun tim kerja untuk peningkatan kinerja organisasi",
+          "indicators": [
+            "Melihat kekuatan/kelemahan anggota tim, membentuk tim yang tepat, mengantisipasi kemungkinan hambatan",
+            "Mengupayakan dan mengutamakan pengambilan keputusan berdasarkan penerapan standar keadilan dan etika yang tinggi",
+            "Membangun aliansi dengan para pemangku kepentingan dalam rangka mendukung penyelesaian target kerja kelompok"
+          ]
+        },
+        {
+          "level": 4,
+          "description": "Membangun komitmen tim, sinergi",
+          "indicators": [
+            "Membangun sinergi antar unit kerja di lingkup instansi yang dipimpin",
+            "Memfasilitasi kepentingan yang berbeda dari unit kerja lain sehingga tercipta sinergi",
+            "Mengembangkan sistem yang menghargai kerja sama antar unit, memberikan dukungan untuk memastikan tercapainya sinergi"
+          ]
+        },
+        {
+          "level": 5,
+          "description": "Menciptakan situasi kerja sama secara konsisten, baik di dalam maupun di luar instansi",
+          "indicators": [
+            "Menciptakan hubungan kerja yang konstruktif dengan menerapkan norma / etos / nilai-nilai kerja yang baik",
+            "Secara konsisten menjaga sinergi agar pemangku kepentingan dapat bekerja sama dengan orang di dalam maupun di luar organisasi",
+            "Membangun konsensus untuk menggabungkan sumberdaya dari berbagai pemangku kepentingan untuk tujuan bangsa dan negara"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "M.03",
+      "name": "Komunikasi",
+      "definition": "Kemampuan untuk menerangkan pandangan dan gagasan secara jelas, sistematis disertai argumentasi yang logis dengan cara-cara yang sesuai baik secara lisan maupun tertulis; memastikan pemahaman; mendengarkan secara aktif dan efektif; mempersuasi, meyakinkan dan membujuk orang lain.",
+      "weight": 1,
+      "levels": [
+        {
+          "level": 1,
+          "description": "Menyampaikan informasi dengan jelas, lengkap, pemahaman yang sama",
+          "indicators": [
+            "Menyampaikan informasi (data), pikiran atau pendapat dengan jelas, singkat dan tepat menggunakan media yang sesuai",
+            "Memastikan pemahaman yang sama atas instruksi yang diterima/diberikan",
+            "Mampu melaksanakan kegiatan surat menyurat sesuai tata naskah organisasi"
+          ]
+        },
+        {
+          "level": 2,
+          "description": "Aktif menjalankan komunikasi secara formal dan informal; Bersedia mendengarkan orang lain",
+          "indicators": [
+            "Menggunakan gaya komunikasi informal untuk meningkatkan hubungan profesional",
+            "Mendengarkan pihak lain secara aktif; menangkap dan menginterpretasikan pesan-pesan dari orang lain",
+            "Membuat materi presentasi, pidato, draft naskah, laporan dll sesuai arahan pimpinan"
+          ]
+        },
+        {
+          "level": 3,
+          "description": "Berkomunikasi secara asertif, terampil berkomunikasi lisan/ tertulis untuk menyampaikan informasi yang sensitif/ rumit/ kompleks",
+          "indicators": [
+            "Menyampaikan suatu informasi yang sensitif/rumit dengan cara penyampaian dan kondisi yang tepat",
+            "Menyederhanakan topik yang rumit dan sensitif sehingga lebih mudah dipahami dan diterima orang lain",
+            "Membuat laporan tahunan/periodik/naskah/dokumen/proposal yang kompleks secara sistematis"
+          ]
+        },
+        {
+          "level": 4,
+          "description": "Mampu mengemukakan pemikiran multidimensi secara lisan dan tertulis untuk mendorong kesepakatan",
+          "indicators": [
+            "Mengintegrasikan informasi-informasi penting dari berbagai sumber dengan pihak lain untuk mendapatkan pemahaman yang sama",
+            "Menuangkan pemikiran/konsep dari berbagai sudut pandang/ multidimensi dalam bentuk tulisan formal",
+            "Menyampaikan informasi secara persuasif untuk mendorong pemangku kepentingan sepakat pada langkah-langkah bersama"
+          ]
+        },
+        {
+          "level": 5,
+          "description": "Menggagas sistem komunikasi yang terbuka secara strategis untuk mencari solusi",
+          "indicators": [
+            "Menghilangkan hambatan komunikasi, mampu berkomunikasi dalam isu-isu nasional yang memiliki resiko tinggi",
+            "Menggunakan saluran komunikasi formal dan non formal guna mencapai kesepakatan dengan tujuan meningkatkan kinerja",
+            "Menggagas sistem komunikasi dengan melibatkan pemangku kepentingan sejak dini untuk mencari solusi"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "M.04",
+      "name": "Orientasi pada Hasil",
+      "definition": "Kemampuan mempertahankan komitmen pribadi yang tinggi untuk menyelesaikan tugas, dapat diandalkan, bertanggung jawab, mampu secara sistimatis mengidentifikasi risiko dan peluang dengan memperhatikan keterhubungan antara perencanaan dan hasil.",
+      "weight": 1,
+      "levels": [
+        {
+          "level": 1,
+          "description": "Betanggung jawab untuk memenuhi standar kerja",
+          "indicators": [
+            "Menyelesaikan tugas dengan tuntas; dapat diandalkan",
+            "Bekerja dengan teliti dan hati-hati guna meminimalkan kesalahan dengan mengacu pada standar kualitas (SOP)",
+            "Bersedia menerima masukan, mengikuti contoh cara bekerja yang lebih efektif, efisien"
+          ]
+        },
+        {
+          "level": 2,
+          "description": "Berupaya meningkatkan hasil kerja pribadi yang lebih tinggi dari standar yang ditetapkan",
+          "indicators": [
+            "Menetapkan dan berupaya mencapai standar kerja pribadi yang lebih tinggi dari standar kerja yang ditetapkan organisasi",
+            "Mencari, mencoba metode kerja alternatif untuk meningkatkan hasil kerjanya",
+            "Memberi contoh kepada orang-orang di unit kerjanya untuk mencoba menerapkan metode kerja yang lebih efektif"
+          ]
+        },
+        {
+          "level": 3,
+          "description": "Menetapkan target kerja yang menantang bagi unit kerja, memberi apresiasi dan teguran untuk mendorong kinerja",
+          "indicators": [
+            "Menetapkan target kinerja unit yang lebih tinggi dari target yang ditetapkan organisasi",
+            "Memberikan apresiasi dan teguran untuk mendorong pencapaian hasil unit kerjanya",
+            "Mengembangkan metode kerja yang lebih efektif dan efisien untuk mencapai target kerja unitnya"
+          ]
+        },
+        {
+          "level": 4,
+          "description": "Mendorong unit kerja mencapai target yang ditetapkan atau melebihi hasil kerja sebelumnya",
+          "indicators": [
+            "Mendorong unit kerja di tingkat instansi untuk mencapai kinerja yang melebihi target yang ditetapkan",
+            "Memantau dan mengevaluasi hasil kerja unitnya agar selaras dengan sasaran strategis instansi",
+            "Mendorong pemanfaatan sumber daya bersama antar unit kerja dalam rangka meningkatkan efektifitas dan efisiensi"
+          ]
+        },
+        {
+          "level": 5,
+          "description": "Meningkatkan mutu pencapaian kerja organisasi",
+          "indicators": [
+            "Memastikan kualitas sesuai standar dan keberlanjutan hasil kerja organisasi yang memberi kontribusi pada pencapaian target prioritas nasional",
+            "Memastikan tersedianya sumber daya organisasi untuk menjamin tercapainya target prioritas instansi/nasional",
+            "Membuat kebijakan untuk menerapkan metode kerja yang lebih efektif-efisien dalam mencapai tujuan prioritas nasional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "M.05",
+      "name": "Pelayanan Publik",
+      "definition": "Kemampuan dalam melaksanakan tugas-tugas pemerintahan, pembangunan dan kegiatan pemenuhan kebutuhan pelayanan publik secara profesional, transparan, mengikuti standar pelayanan yang objektif, netral, tidak memihak, tidak diskriminatif.",
+      "weight": 1,
+      "levels": [
+        {
+          "level": 1,
+          "description": "Menjalankan tugas mengikuti standar pelayanan",
+          "indicators": [
+            "Mampu mengerjakan tugas-tugas dengan mengikuti standar pelayanan yang objektif, netral, tidak memihak, tidak diskriminatif",
+            "Melayani kebutuhan, permintaan dan keluhan pemangku kepentingan",
+            "Menyelesaikan masalah dengan tepat tanpa bersikap membela diri dalam kapasitas sebagai pelaksana pelayanan publik"
+          ]
+        },
+        {
+          "level": 2,
+          "description": "Mampu mensupervisi/mengawasi dan menjelaskan proses pelaksanaan tugas pemerintahan/pelayanan publik secara transparan",
+          "indicators": [
+            "Menunjukan sikap yakin dalam mengerjakan tugas-tugas pemerintahan/pelayanan publik, mampu menyelia dan menjelaskan secara obyektif",
+            "Secara aktif mencari informasi untuk mengenali kebutuhan pemangku kepentingan agar dapat menjalankan pelaksanaan tugas dengan cepat dan tanggap",
+            "Mampu mengenali dan memanfaatkan kebiasaan, tatacara, situasi tertentu sehingga apa yang disampaikan menjadi perhatian pemangku kepentingan"
+          ]
+        },
+        {
+          "level": 3,
+          "description": "Mampu memanfaatkan kekuatan kelompok serta memperbaiki standar pelayanan publik di lingkup unit kerja",
+          "indicators": [
+            "Memahami, mendeskripsikan pengaruh dan hubungan/kekuatan kelompok yang sedang berjalan di organisasi",
+            "Menggunakan keterampilan dan pemahaman lintas organisasi untuk secara efektif memfasilitasi kebutuhan kelompok yang lebih besar",
+            "Mengimplementasikan cara-cara yang efektif untuk memantau dan mengevaluasi masalah yang dihadapi pemangku kepentingan"
+          ]
+        },
+        {
+          "level": 4,
+          "description": "Mampu memonitor, mengevaluasi, memperhitungkan dan mengantisipasi dampak dari isu-isu jangka panjang dalam hal pelayanan kebutuhan pemangku kepentingan",
+          "indicators": [
+            "Memahami dan memberi perhatian kepada isu-isu jangka panjang, kesempatan atau kekuatan politik yang mempengaruhi organisasi",
+            "Menjaga agar kebijakan pelayanan publik yang diselenggarakan oleh instansinya telah selaras dengan standar pelayanan yang objektif, netral",
+            "Menerapkan strategi jangka panjang yang berfokus pada pemenuhan kebutuhan pemangku kepentingan dalam menyusun kebijakan"
+          ]
+        },
+        {
+          "level": 5,
+          "description": "Mampu memastikan kebijakan kebijakan pelayanan publik yang menjamin terselenggaranya pelayanan publik yang objektif, netral, tidak memihak, tidak diskriminatif",
+          "indicators": [
+            "Mampu menciptakan kebijakan kebijakan pelayanan publik yang menjamin terselenggaranya pelayanan publik yang objektif, netral, tidak memihak, tidak diskriminatif",
+            "Menginternalisasikan nilai dan semangat pelayanan publik yang mengikuti standar objektif, netral, tidak memihak, tidak diskriminatif",
+            "Menjamin terselenggaranya pelayanan publik yang objektif, netral, tidak memihak, tidak diskriminatif"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "M.06",
+      "name": "Pengembangan Diri dan Orang Lain",
+      "definition": "Kemampuan untuk meningkatkan pengetahuan dan menyempurnakan keterampilan diri; menginspirasi orang lain untuk mengembangkan dan menyempurnakan pengetahuan dan keterampilan yang relevan dengan pekerjaan dan pengembangan karir jangka panjang.",
+      "weight": 1,
+      "levels": [
+        {
+          "level": 1,
+          "description": "Pengembangan diri",
+          "indicators": [
+            "Mengidentifikasi kebutuhan pengembangan diri dan menyeleksi sumber serta metodologi pembelajaran yang diperlukan",
+            "Menunjukkan usaha mandiri untuk mempelajari keterampilan atau kemampuan baru dari berbagai media pembelajaran",
+            "Berupaya meningkatkan diri dengan belajar dari orang-orang lain yang berwawasan luas di dalam organisasi"
+          ]
+        },
+        {
+          "level": 2,
+          "description": "Meningkatkan kemampuan bawahan dengan memberikan contoh dan penjelasan cara melaksanakan suatu pekerjaan",
+          "indicators": [
+            "Meningkatkan kemampuan bawahan dengan memberikan contoh, instruksi, penjelasan dan petunjuk praktis yang jelas",
+            "Membantu bawahan untuk mempelajari proses, program atau sistem baru",
+            "Menggunakan metode lain untuk meyakinkan bahwa orang lain telah memahami penjelasan atau pengarahan"
+          ]
+        },
+        {
+          "level": 3,
+          "description": "Memberikan umpan balik, membimbing",
+          "indicators": [
+            "Memberikan tugas-tugas yang menantang pada bawahan sebagai media belajar untuk mengembangkan kemampuannya",
+            "Mengamati bawahan dalam mengerjakan tugasnya dan memberikan umpan balik yang objektif dan jujur",
+            "Mendorong kepercayaan diri bawahan; memberikan kepercayaan penuh pada bawahan untuk mengerjakan tugas dengan caranya sendiri"
+          ]
+        },
+        {
+          "level": 4,
+          "description": "Menyusun program pengembangan jangka panjang dalam rangka mendorong manajemen pembelajaran",
+          "indicators": [
+            "Menyusun program pengembangan jangka panjang bersama-sama dengan bawahan, termasuk penetapan tujuan, bimbingan, penugasan",
+            "Melaksanakan manajemen pembelajaran termasuk evaluasi dan umpan balik pada tataran organisasi",
+            "Mengembangkan orang-orang disekitarnya secara konsisten, melakukan kaderisasi untuk posisi-posisi di unit kerjanya"
+          ]
+        },
+        {
+          "level": 5,
+          "description": "Menciptakan situasi yang mendorong organisasi untuk mengembangkan kemampuan belajar secara berkelanjutan",
+          "indicators": [
+            "Menciptakan situasi yang mendorong individu, kelompok, unit kerja untuk mengembangkan kemampuan belajar secara berkelanjutan",
+            "Merekomendasikan/memberikan penghargaan bagi upaya pengembangan yang berhasil, memastikan dukungan bagi orang lain",
+            "Memberikan inspirasi kepada individu atau kelompok untuk belajar secara berkelanjutan dalam penerapan di tingkat instansi"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "M.07",
+      "name": "Mengelola Perubahan",
+      "definition": "Kemampuan dalam menyesuaikan diri dengan situasi yang baru atau berubah dan tidak bergantung secara berlebihan pada metode dan proses lama, mengambil tindakan untuk mendukung dan melaksanakan insiatif perubahan.",
+      "weight": 1,
+      "levels": [
+        {
+          "level": 1,
+          "description": "Mengikuti perubahan dengan arahan tersebut",
+          "indicators": [
+            "Sadar mengenai perubahan yang terjadi di organisasi dan berusaha menyesuaikan diri dengan perubahan",
+            "Mengikuti perubahan secara terbuka sesuai petunjuk/pedoman",
+            "Menyesuaikan cara kerja lama dengan menerapkan metode/proses baru dengan bimbingan orang lain"
+          ]
+        },
+        {
+          "level": 2,
+          "description": "Proaktif beradaptasi mengikuti perubahan",
+          "indicators": [
+            "Menyesuaikan cara kerja lama dengan menerapkan metode/proses baru selaras dengan ketentuan yang berlaku tanpa arahan orang lain",
+            "Mengembangkan kemampuan diri untuk menghadapi perubahan",
+            "Cepat dan tanggap dalam menerima perubahan"
+          ]
+        },
+        {
+          "level": 3,
+          "description": "Membantu orang lain mengikuti perubahan, mengantisipasi perubahan secara tepat",
+          "indicators": [
+            "Membantu orang lain dalam melakukan perubahan",
+            "Menyesuaikan prioritas kerja secara berulang-ulang jika diperlukan",
+            "Mengantisipasi perubahan yang dibutuhkan oleh unit kerjanya secara tepat. Memberikan solusi efektif terhadap masalah yang ditimbulkan oleh perubahan"
+          ]
+        },
+        {
+          "level": 4,
+          "description": "Memimpin perubahan pada unit kerja",
+          "indicators": [
+            "Mengarahkan unit kerja untuk lebih siap dalam menghadapi perubahan termasuk memitigasi risiko yang mungkin terjadi",
+            "Memastikan perubahan sudah diterapkan secara aktif di lingkup unit kerjanya secara berkala",
+            "Memimpin dan memastikan penerapan program-program perubahan selaras antar unit kerja"
+          ]
+        },
+        {
+          "level": 5,
+          "description": "Memimpin, menggalang dan menggerakkan dukungan pemangku kepentingan untuk menjalankan perubahan secara berkelanjutan pada tingkat instansi/nasional",
+          "indicators": [
+            "Membuat kebijakan-kebijakan yang mendorong perubahan yang berdampak pada pencapaian sasaran prioritas nasional",
+            "Menggalang dan menggerakkan dukungan para pemangku kepentingan untuk mengimplementasikan perubahan yang telah ditetapkan",
+            "Secara berkelanjutan, mencari cara-cara baru untuk memberi nilai tambah bagi perubahan yang tengah dijalankan"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "M.08",
+      "name": "Pengambilan Keputusan",
+      "definition": "Kemampuan membuat keputusan yang baik secara tepat waktu dan dengan keyakinan diri setelah mempertimbangkan prinsip kehati-hatian, dirumuskan secara sistematis dan seksama berdasarkan berbagai informasi, alternatif pemecahan masalah dan konsekuensinya.",
+      "weight": 1,
+      "levels": [
+        {
+          "level": 1,
+          "description": "Mengumpulkan informasi untuk bertindak sesuai kewenangan",
+          "indicators": [
+            "Mengumpulkan dan mempertimbangkan informasi yang dibutuhkan dalam mencari solusi",
+            "Mengenali situasi/pilihan yang tepat untuk bertindak sesuai kewenangan",
+            "Mempertimbangkan kemungkinan solusi yang dapat diterapkan dalam pekerjaan rutin berdasarkan kebijakan dan prosedur yang telah ditentukan"
+          ]
+        },
+        {
+          "level": 2,
+          "description": "Menganalisis masalah secara mendalam",
+          "indicators": [
+            "Melakukan analisis secara mendalam terhadap informasi yang tersedia dalam upaya mencari solusi",
+            "Mempertimbangkan berbagai alternatif yang ada sebelum membuat kesimpulan",
+            "Membuat keputusan operasional berdasarkan kesimpulan dari berbagai sumber informasi sesuai dengan pedoman yang ada"
+          ]
+        },
+        {
+          "level": 3,
+          "description": "Membandingkan berbagai alternatif, menyeimbangkan risiko keberhasilan dalam implementasi",
+          "indicators": [
+            "Membandingkan berbagai alternatif tindakan dan implikasinya",
+            "Memilih alternatif solusi yang terbaik, membuat keputusan operasional mengacu pada alternatif solusi terbaik",
+            "Menyeimbangkan antara kemungkinan risiko dan keberhasilan dalam implementasinya"
+          ]
+        },
+        {
+          "level": 4,
+          "description": "Menyelesaikan masalah yang mengandung risiko tinggi, mengantisipasi dampak keputusan, membuat tindakan pengamanan; mitigasi risiko",
+          "indicators": [
+            "Menyusun dan/atau memutuskan konsep penyelesaian masalah yang melibatkan beberapa/seluruh fungsi dalam organisasi",
+            "Menghasilkan solusi dari berbagai masalah yang kompleks, terkait dengan bidang kerjanya yang berdampak pada pihak lain",
+            "Membuat keputusan dan mengantisipasi dampak keputusannya serta menyiapkan tindakan penanganannya (mitigasi risiko)"
+          ]
+        },
+        {
+          "level": 5,
+          "description": "Menghasilkan solusi dan mengambil keputusan untuk mengatasi permasalahan jangka panjang/strategis, berdampak nasional",
+          "indicators": [
+            "Menghasilkan solusi yang dapat mengatasi permasalahan jangka panjang",
+            "Menghasilkan solusi strategis yang berdampak pada tataran instansi/nasional",
+            "Membuat keputusan atau kebijakan yang berdampak nasional dengan memitigasi risiko yang mungkin timbul"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SK.01",
+      "name": "Perekat Bangsa",
+      "definition": "Kemampuan dalam mempromosikan sikap toleransi, keterbukaan, peka terhadap perbedaan individu/kelompok masyarakat; mampu menjadi perpanjangan tangan pemerintah dalam mempersatukan masyarakat dan membangun hubungan sosial psikologis dengan masyarakat.",
+      "weight": 1,
+      "levels": [
+        {
+          "level": 1,
+          "description": "Peka memahami dan menerima kemajemukan",
+          "indicators": [
+            "Mampu memahami, menerima, peka terhadap perbedaan individu/kelompok masyarakat",
+            "Terbuka, ingin belajar tentang perbedaan/kemajemukan masyarakat",
+            "Mampu bekerja bersama dengan individu yang berbeda latar belakang dengan-nya"
+          ]
+        },
+        {
+          "level": 2,
+          "description": "Aktif mengembangkan sikap saling menghargai, menekankan persamaan dan persatuan",
+          "indicators": [
+            "Menampilkan sikap dan perilaku yang peduli akan nilai-nilai keberagaman dan menghargai perbedaan",
+            "Membangun hubungan baik antar individu dalam organisasi, mitra kerja, pemangku kepentingan",
+            "Bersikap tenang, mampu mengendalikan emosi, kemarahan dan frustasi dalam menghadapi pertentangan yang ditimbulkan oleh perbedaan"
+          ]
+        },
+        {
+          "level": 3,
+          "description": "Mempromosikan, mengembangkan sikap toleransi dan persatuan",
+          "indicators": [
+            "Mempromosikan sikap menghargai perbedaan di antara orang-orang yang mendorong toleransi dan keterbukaan",
+            "Melakukan pemetaan sosial di masyarakat sehingga dapat memberikan respon yang sesuai dengan budaya yang berlaku",
+            "Menjadi mediator untuk menyelesaikan konflik atau mengurangi dampak negatif dari konflik atau potensi konflik"
+          ]
+        },
+        {
+          "level": 4,
+          "description": "Mendayagunakan perbedaan secara konstruktif dan kreatif untuk meningkatkan efektifitas organisasi",
+          "indicators": [
+            "Menginisiasi dan merepresentasikan pemerintah di lingkungan kerja dan masyarakat untuk senantiasa menjaga persatuan dan kesatuan dalam keberagaman",
+            "Mampu mendayagunakan perbedaan latar belakang, agama/kepercayaan, suku, jender, sosial ekonomi, preferensi politik untuk mencapai kelancaran pencapaian tujuan organisasi",
+            "Mampu membuat program yang mengakomodasi perbedaan latar belakang, agama/kepercayaan, suku, jender, sosial ekonomi, preferensi politik"
+          ]
+        },
+        {
+          "level": 5,
+          "description": "Wakil pemerintah untuk membangun hubungan sosial psikologis",
+          "indicators": [
+            "Menjadi wakil pemerintah yang mampu membangun hubungan sosial psikologis dengan masyarakat sehingga menciptakan kelekatan yang kuat",
+            "Mampu mengkomunikasikan dampak risiko yang teridentifikasi dan merekomendasikan tindakan korektif berdasarkan pertimbangan perbedaan latar belakang",
+            "Mampu membuat kebijakan yang mengakomodasi perbedaan latar belakang, agama/kepercayaan, suku, jender, sosial ekonomi, preferensi politik yang berdampak positif secara nasional"
+          ]
+        }
+      ]
+    }
+  ]
+}
