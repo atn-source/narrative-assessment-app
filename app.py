@@ -1,9 +1,14 @@
 import streamlit as st
 import tempfile
+import os
 from pathlib import Path
+from dotenv import load_dotenv
 from file_processor import extract_text, get_file_size_mb
-from scorer import score_narrative, format_score_summary
+from claude_assessor import assess_narrative
+from scorer import format_score_summary
 from feedback_generator import generate_feedback, generate_summary_feedback
+
+load_dotenv()
 
 st.set_page_config(page_title="Narrative Assessment", layout="wide")
 
@@ -45,19 +50,22 @@ if uploaded_file is not None:
                 st.markdown("### Assessment Results")
 
                 if st.button("🔍 Analyze Narrative", type="primary"):
-                    with st.spinner("Analyzing against competency rubric..."):
-                        scores = score_narrative(narrative_text)
+                    if not os.getenv("ANTHROPIC_API_KEY"):
+                        st.error("❌ API key not configured. Please set ANTHROPIC_API_KEY in environment.")
+                    else:
+                        with st.spinner("Analyzing against competency rubric with Claude AI..."):
+                            scores = assess_narrative(narrative_text)
 
-                    st.success("✅ Analysis Complete!")
+                        st.success("✅ Analysis Complete!")
 
-                    with st.expander("📊 Score Summary", expanded=True):
-                        st.markdown(format_score_summary(scores))
+                        with st.expander("📊 Score Summary", expanded=True):
+                            st.markdown(format_score_summary(scores))
 
-                    with st.expander("📋 Detailed Feedback"):
-                        st.markdown(generate_feedback(scores, narrative_text))
+                        with st.expander("📋 Detailed Feedback"):
+                            st.markdown(generate_feedback(scores))
 
-                    with st.expander("📈 Overall Summary"):
-                        st.markdown(generate_summary_feedback(scores))
+                        with st.expander("📈 Overall Summary"):
+                            st.markdown(generate_summary_feedback(scores))
 
                     st.divider()
 
@@ -69,6 +77,7 @@ if uploaded_file is not None:
 - **Nama File:** {uploaded_file.name}
 - **Ukuran:** {file_size:.2f} MB
 - **Jumlah Karakter:** {len(narrative_text)}
+- **Powered by Claude AI**
 
 ---
 
@@ -76,7 +85,7 @@ if uploaded_file is not None:
 
 ---
 
-{generate_feedback(scores, narrative_text)}
+{generate_feedback(scores)}
 
 ---
 

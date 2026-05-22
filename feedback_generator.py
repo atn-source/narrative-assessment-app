@@ -1,46 +1,48 @@
 def generate_feedback(scores: dict) -> str:
-    """Generate comprehensive feedback with evidence and indicators."""
-    feedback = "# 📋 LAPORAN PENILAIAN KOMPETENSI KOMPREHENSIF\n\n"
+    """Generate comprehensive AI-powered feedback."""
+    feedback = "# 📋 LAPORAN PENILAIAN KOMPETENSI KOMPREHENSIF\n(Powered by Claude AI)\n\n"
 
     for comp_id in sorted(scores.keys()):
         result = scores[comp_id]
         name = result["name"]
         definition = result["definition"]
         level = result["achieved_level"]
-        description = result["level_description"]
-        indicators = result["indicators"]
+        reasoning = result["reasoning"]
+        strengths = result["strengths"]
+        indicators_found = result["indicators_found"]
         evidence = result["evidence"]
-        matched = result["matched_count"]
-        total = result["total_indicators"]
+        next_level_focus = result["next_level_focus"]
+        all_levels = result["all_levels"]
+
+        level_desc = next((lv["description"] for lv in all_levels if lv["level"] == level), "")
 
         feedback += f"## {name} (Level {level}/5)\n\n"
         feedback += f"**Definisi Kompetensi:**\n{definition}\n\n"
-        feedback += f"**Deskripsi Level {level}:**\n{description}\n\n"
-        feedback += f"**Tingkat Pencapaian Indikator:** {matched}/{total} indikator teridentifikasi ({int(matched/total*100)}%)\n\n"
+        feedback += f"**Deskripsi Level {level}:**\n{level_desc}\n\n"
 
-        feedback += "### ✅ Indikator Perilaku yang Ditunjukkan:\n"
-        for i, indicator in enumerate(indicators, 1):
-            feedback += f"{i}. {indicator}\n"
-        feedback += "\n"
+        feedback += "### Analisis Komprehensif:\n\n"
+        feedback += f"**Penilaian:** {reasoning}\n\n"
+        feedback += f"**Kekuatan yang Ditunjukkan:** {strengths}\n\n"
+
+        if indicators_found:
+            feedback += "### Indikator Perilaku yang Teridentifikasi:\n"
+            for i, indicator in enumerate(indicators_found[:5], 1):
+                feedback += f"{i}. {indicator}\n"
+            feedback += "\n"
 
         if evidence:
-            feedback += "### 📌 Bukti dari Narasi:\n"
+            feedback += "### Bukti dari Narasi:\n"
             for i, ev in enumerate(evidence[:3], 1):
-                feedback += f"- \"{ev.strip()}\"\n"
+                feedback += f"- \"{ev}\"\n"
             feedback += "\n"
 
         if level < 5:
             next_level = level + 1
-            next_result = result["evidence_by_level"][next_level]
-            next_description = next_result["description"]
+            next_level_desc = next((lv["description"] for lv in all_levels if lv["level"] == next_level), "")
 
-            feedback += f"### 🎯 Untuk Mencapai Level {next_level}:\n"
-            feedback += f"**Deskripsi Level {next_level}:** {next_description}\n\n"
-            feedback += "**Indikator yang perlu dikembangkan:**\n"
-
-            for indicator in next_result["indicators"]:
-                feedback += f"- {indicator}\n"
-            feedback += "\n"
+            feedback += f"### Untuk Mencapai Level {next_level}:\n"
+            feedback += f"**Deskripsi Level {next_level}:** {next_level_desc}\n\n"
+            feedback += f"**Fokus Pengembangan:** {next_level_focus}\n\n"
 
         feedback += "---\n\n"
 
@@ -64,20 +66,24 @@ def generate_summary_feedback(scores: dict) -> str:
     for level in sorted(level_counts.keys()):
         count = level_counts[level]
         percentage = (count / total_competencies) * 100
-        bar_length = count
-        bar = "█" * bar_length + "░" * (total_competencies - bar_length)
+        bar = "█" * count + "░" * (total_competencies - count)
         summary += f"**Level {level}:** {bar} {count}/{total_competencies} ({percentage:.0f}%)\n"
 
-    summary += "\n### 💡 Interpretasi:\n"
+    summary += "\n### Interpretasi Keseluruhan:\n"
 
     if avg_level >= 4.5:
-        summary += "- **Kinerja Luar Biasa:** Menunjukkan kompetensi tinggi di semua area dengan kapabilitas untuk berperan sebagai role model.\n"
+        summary += "**Kinerja Luar Biasa (Exceptional)**\n"
+        summary += "Menunjukkan kompetensi tinggi di semua area dengan kapabilitas untuk berperan sebagai role model dan agen perubahan di tingkat organisasi/nasional.\n"
     elif avg_level >= 3.5:
-        summary += "- **Kinerja Baik:** Menunjukkan kompetensi solid dengan inisiatif pengembangan yang jelas ke level berikutnya.\n"
+        summary += "**Kinerja Baik (Good)**\n"
+        summary += "Menunjukkan kompetensi yang solid dengan inisiatif pengembangan yang jelas. Siap untuk peran kepemimpinan di tingkat unit kerja.\n"
     elif avg_level >= 2.5:
-        summary += "- **Kinerja Cukup:** Menunjukkan kompetensi dasar yang konsisten, dengan peluang pengembangan signifikan.\n"
+        summary += "**Kinerja Cukup (Adequate)**\n"
+        summary += "Menunjukkan kompetensi dasar yang konsisten. Terdapat peluang pengembangan yang signifikan untuk mencapai tingkat yang lebih tinggi.\n"
     else:
-        summary += "- **Kinerja Perlu Ditingkatkan:** Fokus pada penguatan kompetensi dasar untuk mencapai level yang lebih tinggi.\n"
+        summary += "**Kinerja Perlu Ditingkatkan (Needs Improvement)**\n"
+        summary += "Fokus pada penguatan kompetensi dasar dengan mentorship dan pengembangan berkelanjutan.\n"
 
-    summary += "\n"
+    summary += "\n---\n"
+    summary += "*Assessment powered by Claude AI - Sonnet 4.6*\n"
     return summary
