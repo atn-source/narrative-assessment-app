@@ -4,13 +4,40 @@ from pathlib import Path
 from dotenv import load_dotenv
 from anthropic import Anthropic
 from concurrent.futures import ThreadPoolExecutor, as_completed
+from file_processor import extract_text
 
 load_dotenv()
+
+_context_cache = None
 
 def load_criteria():
     criteria_path = Path(__file__).parent / "scoring-criteria.json"
     with open(criteria_path, 'r', encoding='utf-8') as f:
         return json.load(f)
+
+def load_context_files() -> str:
+    """Load all PDF/DOCX files from context/ folder once and cache in memory."""
+    global _context_cache
+    if _context_cache is not None:
+        return _context_cache
+
+    context_dir = Path(__file__).parent / "context"
+    if not context_dir.exists():
+        _context_cache = ""
+        return _context_cache
+
+    context_parts = []
+    for file_path in sorted(context_dir.iterdir()):
+        if file_path.suffix.lower() in ('.pdf', '.docx'):
+            try:
+                text = extract_text(str(file_path))
+                if text.strip():
+                    context_parts.append(f"=== {file_path.name} ===\n{text.strip()}")
+            except Exception:
+                pass
+
+    _context_cache = "\n\n".join(context_parts)
+    return _context_cache
 
 def assess_competency(narrative: str, competency: dict, api_key: str = None) -> dict:
     """Use Claude to assess a single competency against the narrative."""
@@ -25,7 +52,6 @@ def assess_competency(narrative: str, competency: dict, api_key: str = None) -> 
     definition = competency["definition"]
     levels = competency["levels"]
 
-    # Build level descriptions for Claude
     level_descriptions = ""
     for level in levels:
         level_descriptions += f"\nLevel {level['level']}: {level['description']}\n"
@@ -54,6 +80,21 @@ ANALYSIS QUALITY:
 - Explain WHY the demonstrated behaviors fit this level
 - Suggest CONCRETE steps to reach the next level
 - Be specific and evidence-based, not generic"""
+
+    # Build system blocks — static content is marked for prompt caching
+    # so all parallel competency calls reuse the cached prefix
+    context_text = load_context_files()
+
+    system_blocks = [{"type": "text", "text": system_prompt}]
+
+    if context_text:
+        system_blocks.append({
+            "type": "text",
+            "text": f"REFERENCE CONTEXT:\n\n{context_text}",
+            "cache_control": {"type": "ephemeral"}
+        })
+    else:
+        system_blocks[0]["cache_control"] = {"type": "ephemeral"}
 
     prompt = f"""Analyze the following narrative and assess the competency "{comp_name}".
 
@@ -99,7 +140,7 @@ Format your response as JSON:
     message = client.messages.create(
         model="claude-sonnet-4-6",
         max_tokens=2000,
-        system=system_prompt,
+        system=system_blocks,
         messages=[
             {"role": "user", "content": prompt}
         ]
@@ -108,15 +149,12 @@ Format your response as JSON:
     response_text = message.content[0].text
 
     try:
-        # Extract JSON from response (handle markdown code blocks)
-        # Remove markdown code block markers if present
         cleaned_text = response_text.replace('```json', '').replace('```', '')
 
         json_start = cleaned_text.find('{')
         if json_start == -1:
             raise ValueError("No JSON object found in response")
 
-        # Find the closing brace, accounting for nested structures
         brace_count = 0
         json_end = json_start
         in_string = False
@@ -148,8 +186,7 @@ Format your response as JSON:
 
         json_str = cleaned_text[json_start:json_end]
         assessment = json.loads(json_str)
-    except (json.JSONDecodeError, ValueError) as e:
-        # Fallback: try to extract what we can from the response
+    except (json.JSONDecodeError, ValueError):
         assessment = {
             "achieved_level": 2,
             "indicators_found": [],
