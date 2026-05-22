@@ -28,9 +28,12 @@ def load_context_files() -> str:
 
     context_parts = []
     for file_path in sorted(context_dir.iterdir()):
-        if file_path.suffix.lower() in ('.pdf', '.docx'):
+        if file_path.suffix.lower() in ('.pdf', '.docx', '.md', '.txt'):
             try:
-                text = extract_text(str(file_path))
+                if file_path.suffix.lower() in ('.md', '.txt'):
+                    text = file_path.read_text(encoding='utf-8')
+                else:
+                    text = extract_text(str(file_path))
                 if text.strip():
                     context_parts.append(f"=== {file_path.name} ===\n{text.strip()}")
             except Exception:
