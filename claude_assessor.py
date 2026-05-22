@@ -6,15 +6,18 @@ from anthropic import Anthropic
 
 load_dotenv()
 
-client = Anthropic()
-
 def load_criteria():
     criteria_path = Path(__file__).parent / "scoring-criteria.json"
     with open(criteria_path, 'r', encoding='utf-8') as f:
         return json.load(f)
 
-def assess_competency(narrative: str, competency: dict) -> dict:
+def assess_competency(narrative: str, competency: dict, api_key: str = None) -> dict:
     """Use Claude to assess a single competency against the narrative."""
+
+    if not api_key:
+        api_key = os.getenv("ANTHROPIC_API_KEY")
+
+    client = Anthropic(api_key=api_key)
 
     comp_id = competency["id"]
     comp_name = competency["name"]
@@ -136,13 +139,13 @@ Format your response as JSON with these fields:
         "all_levels": levels
     }
 
-def assess_narrative(narrative: str) -> dict:
+def assess_narrative(narrative: str, api_key: str = None) -> dict:
     """Assess all competencies in the narrative using Claude."""
     criteria = load_criteria()
     results = {}
 
     for competency in criteria["competencies"]:
-        result = assess_competency(narrative, competency)
+        result = assess_competency(narrative, competency, api_key=api_key)
         results[competency["id"]] = result
 
     return results

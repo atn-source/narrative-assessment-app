@@ -10,6 +10,13 @@ from feedback_generator import generate_feedback, generate_summary_feedback
 
 load_dotenv()
 
+# Get API key from Streamlit secrets (Streamlit Cloud) or environment (local)
+def get_api_key():
+    try:
+        return st.secrets.get("ANTHROPIC_API_KEY")
+    except FileNotFoundError:
+        return os.getenv("ANTHROPIC_API_KEY")
+
 st.set_page_config(page_title="Narrative Assessment", layout="wide")
 
 st.title("📝 Narrative Competency Assessment")
@@ -50,11 +57,12 @@ if uploaded_file is not None:
                 st.markdown("### Assessment Results")
 
                 if st.button("🔍 Analyze Narrative", type="primary"):
-                    if not os.getenv("ANTHROPIC_API_KEY"):
-                        st.error("❌ API key not configured. Please set ANTHROPIC_API_KEY in environment.")
+                    api_key = get_api_key()
+                    if not api_key:
+                        st.error("❌ API key not configured. Please add ANTHROPIC_API_KEY to Streamlit secrets or .env file.")
                     else:
                         with st.spinner("Analyzing against competency rubric with Claude AI..."):
-                            scores = assess_narrative(narrative_text)
+                            scores = assess_narrative(narrative_text, api_key=api_key)
 
                         st.success("✅ Analysis Complete!")
 
