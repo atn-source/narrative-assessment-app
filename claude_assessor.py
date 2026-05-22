@@ -68,15 +68,22 @@ Format your response as JSON with these fields:
     response_text = message.content[0].text
 
     try:
-        # Handle markdown code blocks with triple backticks
-        if '```json' in response_text:
-            json_start = response_text.find('{')
-            json_end = response_text.find('```', json_start)
-            if json_end == -1:
-                json_end = response_text.rfind('}') + 1
-        else:
-            json_start = response_text.find('{')
-            json_end = response_text.rfind('}') + 1
+        # Extract JSON from response (handle markdown code blocks)
+        json_start = response_text.find('{')
+        if json_start == -1:
+            raise ValueError("No JSON object found in response")
+
+        # Find the closing brace, accounting for nested structures
+        brace_count = 0
+        json_end = json_start
+        for i in range(json_start, len(response_text)):
+            if response_text[i] == '{':
+                brace_count += 1
+            elif response_text[i] == '}':
+                brace_count -= 1
+                if brace_count == 0:
+                    json_end = i + 1
+                    break
 
         json_str = response_text[json_start:json_end]
         assessment = json.loads(json_str)
