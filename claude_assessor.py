@@ -33,37 +33,73 @@ def assess_competency(narrative: str, competency: dict, api_key: str = None) -> 
         for indicator in level["indicators"]:
             level_descriptions += f"- {indicator}\n"
 
+    system_prompt = """You are an expert assessor of Indonesian government civil service competencies based on the Permenpan 38/2017 framework. Your role is to provide deep, comprehensive analysis of narratives to evaluate competency achievement levels.
+
+ASSESSMENT PRINCIPLES:
+1. Look for BEHAVIORAL EVIDENCE in the narrative, not just keywords
+2. Assess demonstrated capability, not potential
+3. Consider context and constraints the person faced
+4. Identify specific examples that illustrate each competency
+5. Provide constructive feedback for development
+
+EVALUATION APPROACH:
+- Level 1-2: Individual contributor level - focuses on personal performance
+- Level 3: Team leader level - developing others, organizational impact
+- Level 4: Senior leader level - strategic thinking, organizational transformation
+- Level 5: Executive level - national/strategic influence
+
+ANALYSIS QUALITY:
+- Extract EXACT QUOTES from the narrative as evidence
+- Connect behaviors to specific competency indicators
+- Explain WHY the demonstrated behaviors fit this level
+- Suggest CONCRETE steps to reach the next level
+- Be specific and evidence-based, not generic"""
+
     prompt = f"""Analyze the following narrative and assess the competency "{comp_name}".
 
 COMPETENCY DEFINITION:
 {definition}
 
-COMPETENCY LEVELS:
+COMPETENCY LEVELS AND INDICATORS:
 {level_descriptions}
 
 NARRATIVE TO ANALYZE:
 {narrative}
 
-Based on the narrative provided, determine:
-1. Which level (1-5) best matches the person's demonstrated competency
-2. Provide the specific level number (1-5)
-3. List which behavioral indicators from the narrative support this level
-4. Extract 2-3 key quotes from the narrative as evidence
-5. Provide a brief explanation for why this level was chosen
+---
 
-Format your response as JSON with these fields:
+COMPREHENSIVE ASSESSMENT REQUIRED:
+
+1. **Achieved Level**: Determine which level (1-5) is BEST DEMONSTRATED by this person's actual behaviors and accomplishments in the narrative.
+
+2. **Indicators Found**: Identify which specific behavioral indicators from the competency levels are evidenced in the narrative. Match behaviors to indicators, not just keywords.
+
+3. **Evidence**: Extract 2-3 DIRECT QUOTES from the narrative that best demonstrate this competency level. These should be specific examples, not generic statements.
+
+4. **Reasoning**: Provide DETAILED explanation of:
+   - What specific behaviors demonstrate this level
+   - How these behaviors compare to the level description
+   - Why this level fits better than adjacent levels
+   - Evidence of actual capability (not potential)
+
+5. **Strengths**: Articulate what this person demonstrates particularly well in this competency area, with examples.
+
+6. **Next Level Focus**: Provide SPECIFIC, ACTIONABLE recommendations for what's needed to reach the next level, based on gaps in the current narrative.
+
+Format your response as JSON:
 {{
   "achieved_level": <number 1-5>,
-  "indicators_found": [<list of indicator descriptions found in narrative>],
-  "evidence": [<list of 2-3 quotes from narrative>],
-  "reasoning": "<explanation of why this level was assigned>",
-  "strengths": "<what the narrative shows well>",
-  "next_level_focus": "<what would be needed for the next level>"
+  "indicators_found": [<specific indicators matched to narrative evidence>],
+  "evidence": [<direct quotes from narrative>],
+  "reasoning": "<detailed explanation of level assignment with behavioral evidence>",
+  "strengths": "<what is demonstrated well, with examples>",
+  "next_level_focus": "<specific actions to reach next level>"
 }}"""
 
     message = client.messages.create(
         model="claude-sonnet-4-6",
-        max_tokens=1024,
+        max_tokens=2000,
+        system=system_prompt,
         messages=[
             {"role": "user", "content": prompt}
         ]
