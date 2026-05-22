@@ -1,41 +1,47 @@
 # Narrative Competency Assessment App
 
-Rule-based assessment tool that analyzes narratives against Indonesian government competency framework.
+AI-powered assessment tool using Claude to analyze narratives against Indonesian government competency framework (Permenpan 38/2017).
 
 ## Features
 
-- ✅ Analyzes narratives against 9 competencies (8 managerial + 1 socio-cultural)
+- ✅ **Claude AI Analysis** - Uses Claude Sonnet 4.6 for intelligent narrative understanding
+- 🎯 Analyzes narratives against 9 competencies (8 managerial + 1 socio-cultural)
 - 📄 Supports DOCX and PDF file uploads
-- 📊 Provides narrative-based scoring (Level 1-5)
-- 📋 Generates detailed feedback per competency
-- 📈 Overall summary and progress tracking
+- 📊 Provides semantic scoring with evidence extraction (Level 1-5)
+- 📋 Generates comprehensive feedback with behavioral indicators
+- 📈 Overall summary with competency distribution analysis
 - ⬇️ Download reports as Markdown
 
 ## Quick Start
 
 ### Local Setup
 
-1. **Install dependencies:**
+1. **Get an API key:**
+   - Create account at https://console.anthropic.com/
+   - Generate new API key
+   - Save it securely
+
+2. **Install dependencies:**
 ```bash
 pip install -r requirements.txt
 ```
 
-2. **Run the app:**
+3. **Set up environment:**
+   - Copy `.env.example` to `.env`
+   - Add your Anthropic API key: `ANTHROPIC_API_KEY=sk-ant-...`
+
+4. **Run the app:**
 ```bash
 streamlit run app.py
 ```
 
-3. **Access:** Open http://localhost:8501 in your browser
+5. **Access:** Open http://localhost:8501 in your browser
 
 ### Deployment to Streamlit Cloud
 
 1. **Push to GitHub:**
 ```bash
-git init
-git add .
-git commit -m "Initial commit: Competency assessment app"
-git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO.git
-git push -u origin main
+git push origin main
 ```
 
 2. **Deploy on Streamlit Cloud:**
@@ -43,6 +49,15 @@ git push -u origin main
    - Click "New app"
    - Select your GitHub repo, branch, and `app.py` as the main file
    - Click "Deploy"
+
+3. **Add API Key to Streamlit Cloud:**
+   - Go to your app dashboard on Streamlit Cloud
+   - Click ⚙️ Settings → Secrets
+   - Add your API key:
+   ```toml
+   ANTHROPIC_API_KEY = "sk-ant-..."
+   ```
+   - Click "Save"
 
 Your app will be live at: `https://YOUR_APP_NAME.streamlit.app`
 
@@ -85,14 +100,17 @@ Each competency is scored on **Level 1-5** based on:
 
 ```
 .
-├── app.py                    # Main Streamlit app
-├── scorer.py                 # Scoring logic
-├── feedback_generator.py      # Feedback formatting
-├── file_processor.py         # File handling (DOCX/PDF)
-├── scoring-criteria.json     # Competency framework
-├── requirements.txt          # Python dependencies
-├── README.md                 # This file
-└── .gitignore               # Git ignore file
+├── app.py                      # Main Streamlit app
+├── claude_assessor.py          # Claude AI assessment module
+├── scorer.py                   # Legacy scoring logic
+├── feedback_generator.py        # Feedback formatting
+├── file_processor.py           # File handling (DOCX/PDF)
+├── scoring-criteria.json       # Competency framework
+├── requirements.txt            # Python dependencies
+├── .env.example                # Environment variables template
+├── .streamlit/secrets.toml.example  # Streamlit Cloud secrets template
+├── README.md                   # This file
+└── .gitignore                  # Git ignore file
 ```
 
 ## Customization
@@ -111,13 +129,30 @@ Edit `feedback_generator.py` to customize:
 
 ## Technical Stack
 
-- **Framework:** Streamlit
+- **Framework:** Streamlit 1.28+
+- **AI:** Anthropic Claude Sonnet 4.6
 - **File Processing:** python-docx, pypdf
-- **Language:** Python 3.8+
+- **Language:** Python 3.11+
+
+## How It Works
+
+1. **Upload** a narrative document (DOCX or PDF)
+2. **Claude analyzes** the narrative by:
+   - Parsing narrative for behavioral examples
+   - Evaluating against competency level indicators
+   - Extracting relevant evidence and quotes
+   - Assigning achievement level (1-5) with reasoning
+3. **View** comprehensive feedback including:
+   - Achieved level with full description
+   - Behavioral indicators identified
+   - Evidence quotes from narrative
+   - Guidance for next level progression
+4. **Download** the complete assessment report
 
 ## Notes
 
-- All competencies have equal weight (1x)
-- Scoring is rule-based (keyword matching + indicator coverage)
-- No percentage scores; narrative-level based (1-5)
-- Reports downloadable as Markdown
+- Uses Claude Sonnet 4.6 for semantic analysis
+- AI-powered extraction of behavioral indicators
+- Evidence-based scoring with quote attribution
+- Competency levels range 1-5 with detailed descriptions
+- Reports downloadable as Markdown with full details
