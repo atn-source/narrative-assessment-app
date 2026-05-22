@@ -68,8 +68,16 @@ Format your response as JSON with these fields:
     response_text = message.content[0].text
 
     try:
-        json_start = response_text.find('{')
-        json_end = response_text.rfind('}') + 1
+        # Handle markdown code blocks with triple backticks
+        if '```json' in response_text:
+            json_start = response_text.find('{')
+            json_end = response_text.find('```', json_start)
+            if json_end == -1:
+                json_end = response_text.rfind('}') + 1
+        else:
+            json_start = response_text.find('{')
+            json_end = response_text.rfind('}') + 1
+
         json_str = response_text[json_start:json_end]
         assessment = json.loads(json_str)
     except (json.JSONDecodeError, ValueError):
