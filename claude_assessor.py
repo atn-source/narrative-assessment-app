@@ -3,6 +3,7 @@ import os
 from pathlib import Path
 from dotenv import load_dotenv
 from anthropic import Anthropic
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 load_dotenv()
 
@@ -140,12 +141,25 @@ Format your response as JSON with these fields:
     }
 
 def assess_narrative(narrative: str, api_key: str = None) -> dict:
-    """Assess all competencies in the narrative using Claude."""
+    """Assess all competencies in the narrative using Claude in parallel."""
     criteria = load_criteria()
     results = {}
 
-    for competency in criteria["competencies"]:
-        result = assess_competency(narrative, competency, api_key=api_key)
-        results[competency["id"]] = result
+    with ThreadPoolExecutor(max_workers=5) as executor:
+        futures = {
+            executor.submit(assess_competency, narrative, comp, api_key): comp["id"]
+            for comp in criteria["competencies"]
+        }
+
+        for future in as_completed(futures):
+            comp_id = futures[future]
+            try:
+                results[comp_id] = future.result()
+            except Exception as e:
+                results[comp_id] = {
+                    "id": comp_id,
+                    "name": "Unknown",
+                    "error": str(e)
+                }
 
     return results

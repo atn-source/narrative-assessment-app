@@ -13,9 +13,16 @@ load_dotenv()
 # Get API key from Streamlit secrets (Streamlit Cloud) or environment (local)
 def get_api_key():
     try:
-        return st.secrets.get("ANTHROPIC_API_KEY")
-    except FileNotFoundError:
-        return os.getenv("ANTHROPIC_API_KEY")
+        # Try Streamlit secrets first (available on Streamlit Cloud)
+        api_key = st.secrets.get("ANTHROPIC_API_KEY")
+        if api_key:
+            return api_key
+    except Exception:
+        # Secrets not available or misconfigured
+        pass
+
+    # Fallback to environment variable (local .env file)
+    return os.getenv("ANTHROPIC_API_KEY")
 
 st.set_page_config(page_title="Narrative Assessment", layout="wide")
 
