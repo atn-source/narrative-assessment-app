@@ -221,6 +221,8 @@ def assess_narrative(narrative: str, api_key: str = None) -> dict:
     criteria = load_criteria()
     results = {}
 
+    comp_map = {c["id"]: c for c in criteria["competencies"]}
+
     with ThreadPoolExecutor(max_workers=5) as executor:
         futures = {
             executor.submit(assess_competency, narrative, comp, api_key): comp["id"]
@@ -232,10 +234,21 @@ def assess_narrative(narrative: str, api_key: str = None) -> dict:
             try:
                 results[comp_id] = future.result()
             except Exception as e:
+                comp = comp_map.get(comp_id, {})
+                levels = comp.get("levels", [])
+                fallback_desc = levels[0]["description"] if levels else "Tidak dapat dinilai"
                 results[comp_id] = {
                     "id": comp_id,
-                    "name": "Unknown",
-                    "error": str(e)
+                    "name": comp.get("name", comp_id),
+                    "definition": comp.get("definition", ""),
+                    "achieved_level": 1,
+                    "indicators_found": [],
+                    "evidence": [],
+                    "reasoning": f"Penilaian gagal: {str(e)}",
+                    "strengths": "",
+                    "next_level_focus": "",
+                    "level_description": fallback_desc,
+                    "all_levels": levels
                 }
 
     return results
