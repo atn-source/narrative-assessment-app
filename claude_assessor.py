@@ -69,32 +69,35 @@ Format your response as JSON with these fields:
 
     try:
         # Extract JSON from response (handle markdown code blocks)
-        json_start = response_text.find('{')
+        # Remove markdown code block markers if present
+        cleaned_text = response_text.replace('```json', '').replace('```', '')
+
+        json_start = cleaned_text.find('{')
         if json_start == -1:
             raise ValueError("No JSON object found in response")
 
         # Find the closing brace, accounting for nested structures
         brace_count = 0
         json_end = json_start
-        for i in range(json_start, len(response_text)):
-            if response_text[i] == '{':
+        for i in range(json_start, len(cleaned_text)):
+            if cleaned_text[i] == '{':
                 brace_count += 1
-            elif response_text[i] == '}':
+            elif cleaned_text[i] == '}':
                 brace_count -= 1
                 if brace_count == 0:
                     json_end = i + 1
                     break
 
-        json_str = response_text[json_start:json_end]
+        json_str = cleaned_text[json_start:json_end]
         assessment = json.loads(json_str)
-    except (json.JSONDecodeError, ValueError):
+    except (json.JSONDecodeError, ValueError) as e:
         assessment = {
             "achieved_level": 2,
             "indicators_found": ["Unable to parse response"],
             "evidence": [],
-            "reasoning": response_text[:200],
-            "strengths": "See narrative",
-            "next_level_focus": "Provide more detailed examples"
+            "reasoning": f"Assessment completed but response parsing encountered an issue. Raw response: {response_text[:300]}",
+            "strengths": "Examine narrative for behavioral indicators",
+            "next_level_focus": "Consider providing more detailed examples"
         }
 
     achieved_level = assessment.get("achieved_level", 2)
